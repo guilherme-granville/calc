@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="calc.ico" type="image/x-icon">
+    <title>Calculadora</title>
+</head>
+
+<body class="body">
+    <div class="container">
+        <form class="calculadora" name="calculadora">
+            <input type="text" readonly class="value" name="txt" />
+            <span class="num clear" onclick="calculadora.txt.value = ''">C</span>
+            <span class="num divisao" onclick="calculadora.txt.value += '/'">÷</span>
+            <span class="num multiplicacao" onclick="calculadora.txt.value += '*'">x</span>
+            <span class="num sete" onclick="calculadora.txt.value += '7'">7</span>
+            <span class="num oito" onclick="calculadora.txt.value += '8'">8</span>
+            <span class="num nove" onclick="calculadora.txt.value += '9'">9</span>
+            <span class="num menos" onclick="calculadora.txt.value += '-'">-</span>
+            <span class="num quatro" onclick="calculadora.txt.value += '4'">4</span>
+            <span class="num cinco" onclick="calculadora.txt.value += '5'">5</span>
+            <span class="num seis" onclick="calculadora.txt.value += '6'">6</span>
+            <span class="num mais" onclick="calculadora.txt.value += '+'">+</span>
+            <span class="num um" onclick="calculadora.txt.value += '1'">1</span>
+            <span class="num dois" onclick="calculadora.txt.value += '2'">2</span>
+            <span class="num" onclick="calculadora.txt.value += '3'">3</span>
+            <span class="num zero" onclick="calculadora.txt.value += '0'">0</span>
+            <span class="num doisZeros" onclick="calculadora.txt.value += '00'">00</span>
+            <span class="num ponto" onclick="calculadora.txt.value += '.'">.</span>
+            <span class="num igual" onclick="calculadora.txt.value = eval(calculadora.txt.value)">=</span>
+        </form>
+    </div>
+    <input type="button" id="toggleColor" value="Dark">
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
+    <script type="text/javascript">
+        VanillaTilt.init(document.querySelector(".container"), {
+            max: 25,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+        });
+
+        var isToggled = false;
+        document.getElementById('toggleColor').addEventListener('click', function () {
+            var button = document.getElementById('toggleColor');
+            if (!isToggled) {
+                document.documentElement.style.setProperty('--before-color', 'linear-gradient(#4e4e4e, #ffffff)');
+                document.documentElement.style.setProperty('--after-color', 'linear-gradient(#ffffff, #292929)');
+                button.value = "Colored";
+                button.style.background = "linear-gradient(to right, #888888, #4e4e4e)";
+            } else {
+                document.documentElement.style.setProperty('--before-color', 'linear-gradient(#e91e63, #ffc107)');
+                document.documentElement.style.setProperty('--after-color', 'linear-gradient(#ffffff, #da00ff)');
+                button.value = "Dark"; // altera o nome do botão
+                button.style.background = "linear-gradient(to right, #e91e63, #da00ff)"; // altera a cor do botão
+            }
+            isToggled = !isToggled;
+        });
+        
+
+    </script>
+</body>
+
+</html>
